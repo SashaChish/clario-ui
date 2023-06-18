@@ -1,3 +1,6 @@
+// Absolute imports
+import { useTheme } from 'styled-components';
+
 // Images
 import logo from '@/assets/media/img/logo.png';
 
@@ -10,27 +13,33 @@ import { StickyWrapper, Wrapper } from './styled';
 
 interface NavigationProps {
   isSticky: boolean;
+  handleProtectButton: () => void;
 }
 
-const Navigation = ({ isSticky }: NavigationProps) => (
-  <Section wrapperStyles={{ width: '100%' }}>
-    {isSticky ? (
-      <StickyWrapper>
-        <div>
-          <img src={logo} alt="logo" />
-        </div>
-        <div>
-          <Button onClick={() => null} type="button">
-            Protect me now
-          </Button>
-        </div>
-      </StickyWrapper>
-    ) : (
-      <Wrapper>
-        <img src={logo} alt="logo" />
-      </Wrapper>
-    )}
-  </Section>
-);
+const Navigation = ({ isSticky, handleProtectButton }: NavigationProps) => {
+  const theme = useTheme();
+
+  return (
+    <Section
+      currentTheme={theme.color.white()}
+      wrapperStyles={{ width: '100%' }}
+    >
+      {isSticky ? (
+        <StickyWrapper>
+          <img src={logo} alt="logo" width="80px" height="22px" />
+          <div>
+            <Button onClick={handleProtectButton} type="button">
+              Protect me now
+            </Button>
+          </div>
+        </StickyWrapper>
+      ) : (
+        <Wrapper>
+          <img src={logo} alt="logo" width="80px" height="22px" />
+        </Wrapper>
+      )}
+    </Section>
+  );
+};
 
 export default Navigation;

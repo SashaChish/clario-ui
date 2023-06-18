@@ -1,15 +1,33 @@
 // Absolute imports
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode, MouseEvent } from 'react';
+
+// Types
+import { Interpolation } from 'styled-components/dist/types';
 
 // Styled
 import StyledButton from './styled';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  styles?: Interpolation<React.CSSProperties>;
+  textStyles?: Interpolation<React.CSSProperties>;
+  size?: 'small' | 'large' | 'big';
 }
 
-const Button = ({ children, ...props }: ButtonProps) => (
-  <StyledButton {...props}>
+const Button = ({
+  onClick = () => null,
+  children,
+  styles,
+  textStyles,
+  ...props
+}: ButtonProps) => (
+  <StyledButton
+    onClick={onClick}
+    styles={styles}
+    $textStyles={textStyles}
+    {...props}
+  >
     <span>{children}</span>
   </StyledButton>
 );

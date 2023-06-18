@@ -8,8 +8,6 @@ export const Title = styled.h1`
   margin: 54px 0 10px;
 
   & span {
-    display: block;
-
     &.primary {
       color: ${({ theme }) => theme.color.primary()};
     }

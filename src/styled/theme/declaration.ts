@@ -11,6 +11,9 @@ declare module 'styled-components' {
       dark: TColor;
       turquoise: TColor;
       purple: TColor;
+      vividBlue: TColor;
+      orange: TColor;
+      lightOrange: TColor;
     };
     fonts: {
       main: string;

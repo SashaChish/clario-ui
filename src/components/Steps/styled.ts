@@ -5,7 +5,7 @@ export const Title = styled.h2`
   line-height: 30px;
   font-size: 26px;
   text-align: center;
-  margin: 72px 0 32px;
+  margin: 60px 0 32px;
 
   & span {
     color: ${({ theme }) => theme.color.turquoise()};

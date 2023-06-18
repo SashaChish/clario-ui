@@ -13,20 +13,31 @@ import { Button } from '@/components/Form';
 // Styled
 import { Title, SubTitle, UnorderedListWrapper } from './styled';
 
-const Introduction = () => {
+interface IntroductionProps {
+  handleProtectButton: () => void;
+}
+
+const Introduction = ({ handleProtectButton }: IntroductionProps) => {
   const theme = useTheme();
 
   return (
-    <Section currentTheme={theme.color.secondary()}>
+    <Section
+      sectionStyles={{ paddingTop: '72px' }}
+      currentTheme={theme.color.secondary()}
+    >
       <Title>
-        <span className="dark">Stop your</span>
+        <span>Stop your</span>
+        <br />
         <span className="primary">phone from</span>
+        <br />
         <span className="primary">being spied on</span>
       </Title>
       <SubTitle>
         Try Clario, a smart anti-spy app that effectively protects your privacy.
       </SubTitle>
-      <Button>Protect me now</Button>
+      <Button size="large" onClick={handleProtectButton}>
+        Protect me now
+      </Button>
       <Devices />
       <Video />
       <UnorderedListWrapper>

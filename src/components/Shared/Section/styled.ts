@@ -14,6 +14,7 @@ interface WrapperProps {
 export const SectionWrapper = styled.section<WrapperProps>`
   ${flexWrapper}
   background-color: ${({ $currentTheme }) => $currentTheme || 'inherit'};
+  ${({ styles }) => styles}
 `;
 
 export const ChildWrapper = styled.div<WrapperProps>`

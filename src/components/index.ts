@@ -7,6 +7,8 @@ import SocialMediaProtection from './SocialMediaProtection';
 import CallRecorderBlocker from './CallRecorderBlocker';
 import ScreenRecordingDetector from './ScreenRecordingDetector';
 import Steps from './Steps';
+import BuyBlock from './BuyBlock';
+import Footer from './Footer';
 
 export {
   Layout,
@@ -18,4 +20,6 @@ export {
   CallRecorderBlocker,
   ScreenRecordingDetector,
   Steps,
+  BuyBlock,
+  Footer,
 };

@@ -16,13 +16,15 @@ export const Wrapper = styled.header<WrapperProps>`
   top: 0;
   left: 0;
   width: 100%;
-  margin: 12px 24px;
-  ${({ styles }) => styles}
+  padding: 18px 0;
+  z-index: 100;
 
   & > img {
     width: 80px;
     height: 21.33px;
   }
+
+  ${({ styles }) => styles}
 `;
 
 export const StickyWrapper = styled(Wrapper)`
@@ -30,5 +32,9 @@ export const StickyWrapper = styled(Wrapper)`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 18px 39px 20px 24px;
 `;

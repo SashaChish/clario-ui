@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+// Types
+import { Interpolation } from 'styled-components/dist/types';
+
+interface Styles {
+  styles?: Interpolation<React.CSSProperties>;
+}
+
+interface IconStyles extends Styles {
+  $iconStyles?: Interpolation<React.CSSProperties>;
+}
+
 export const Wrapper = styled.div``;
 
 export const Title = styled.h3`
@@ -17,7 +28,17 @@ export const SubTitle = styled.h4`
   text-align: center;
 `;
 
-export const Item = styled.div`
+export const IconWrapper = styled.div<IconStyles>`
+  & svg {
+    height: 24px;
+    width: 24px;
+    ${({ $iconStyles }) => $iconStyles}
+  }
+
+  ${({ styles }) => styles}
+`;
+
+export const Item = styled.div<Styles>`
   display: flex;
   align-items: center;
   width: 100%;
@@ -25,9 +46,5 @@ export const Item = styled.div`
   font-size: 14px;
   line-height: 18px;
   margin: 12px 0;
-
-  & svg {
-    height: 24px;
-    width: 24px;
-  }
+  ${({ styles }) => styles}
 `;

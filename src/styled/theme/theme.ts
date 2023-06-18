@@ -8,6 +8,9 @@ export default <DefaultTheme>{
     dark: (opacity = 1) => `rgba(21, 29, 81, ${opacity})`,
     turquoise: (opacity = 1) => `rgba(92, 214, 192, ${opacity})`,
     purple: (opacity = 1) => `rgba(61, 49, 124, ${opacity})`,
+    vividBlue: (opacity = 1) => `rgba(72, 63, 221, ${opacity})`,
+    orange: (opacity = 1) => `rgba(223, 114, 58, ${opacity})`,
+    lightOrange: (opacity = 1) => `rgba(255, 242, 235, ${opacity})`,
   },
   fonts: {
     main: 'Lucida Sans',
