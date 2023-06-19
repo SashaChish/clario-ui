@@ -1,5 +1,5 @@
 // Absolute imports
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 // Theme
@@ -32,18 +32,18 @@ import Main from '@/styled';
 
 const App = () => {
   const [protectCountScroll, setProtectCountScroll] = useState(0);
+  const [trackerDetectorElement, setTrackerDetectorElement] =
+    useState<Element | null>(null);
+  const [protectButtonElement, setProtectButtonElement] =
+    useState<Element | null>(null);
+  const [spywareDetectorElement, setSpywareDetectorElement] =
+    useState<Element | null>(null);
 
   const priceRef = useRef<HTMLDivElement>(null);
 
-  const isIntersectingProtectButton = useOnScreen(
-    getElement('#introductionProtectButton'),
-  );
-  const isIntersectingSpywareDetector = useOnScreen(
-    getElement('#spywareDetector'),
-  );
-  const isIntersectingTrackerDetector = useOnScreen(
-    getElement('#trackerDetector'),
-  );
+  const isIntersectingProtectButton = useOnScreen(protectButtonElement);
+  const isIntersectingSpywareDetector = useOnScreen(spywareDetectorElement);
+  const isIntersectingTrackerDetector = useOnScreen(trackerDetectorElement);
 
   const handleProtectButton = () => {
     setProtectCountScroll((prev) => prev + 1);
@@ -57,6 +57,12 @@ const App = () => {
 
   if (isIntersectingTrackerDetector)
     console.log('Feature shown -> Tracker Detector');
+
+  useEffect(() => {
+    setTrackerDetectorElement(getElement('#trackerDetector'));
+    setProtectButtonElement(getElement('#introductionProtectButton'));
+    setSpywareDetectorElement(getElement('#spywareDetector'));
+  }, [setTrackerDetectorElement]);
 
   return (
     <ThemeProvider theme={theme}>

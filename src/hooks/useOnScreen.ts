@@ -22,6 +22,7 @@ export default function useOnScreen(element) {
 
   useEffect(() => {
     if (!element) return undefined;
+
     observer.observe(element);
 
     return () => observer.disconnect();
