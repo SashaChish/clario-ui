@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-// Types
-import { Interpolation } from 'styled-components/dist/types';
-
 // Styled
 import { flexWrapper } from '@/styled/css';
 
 interface WrapperProps {
-  styles?: Interpolation<React.CSSProperties>;
+  $isVisible: boolean;
 }
 
 export const Wrapper = styled.header<WrapperProps>`
@@ -18,13 +15,13 @@ export const Wrapper = styled.header<WrapperProps>`
   width: 100%;
   padding: 18px 0;
   z-index: 100;
+  transition: all 0.5s linear;
+  transform: translateY(${({ $isVisible }) => ($isVisible ? '0px' : '-200px')});
 
   & > img {
     width: 80px;
     height: 21.33px;
   }
-
-  ${({ styles }) => styles}
 `;
 
 export const StickyWrapper = styled(Wrapper)`
@@ -37,4 +34,6 @@ export const StickyWrapper = styled(Wrapper)`
   left: 0;
   z-index: 100;
   padding: 18px 39px 20px 24px;
+  transition: all 0.5s linear;
+  top: ${({ $isVisible }) => ($isVisible ? '0' : '-70')};
 `;

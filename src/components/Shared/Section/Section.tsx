@@ -12,14 +12,13 @@ interface SectionProps {
   currentTheme?: string;
   wrapperStyles?: Interpolation<React.CSSProperties>;
   sectionStyles?: Interpolation<React.CSSProperties>;
+  id?: string;
 }
 
-const Section = forwardRef<HTMLDivElement, SectionProps>(function Section(
-  { children, currentTheme, wrapperStyles, sectionStyles },
-  ref,
-) {
-  return (
+const Section = forwardRef<HTMLDivElement, SectionProps>(
+  ({ children, currentTheme, wrapperStyles, sectionStyles, id }, ref) => (
     <SectionWrapper
+      id={id}
       ref={ref}
       styles={sectionStyles}
       $currentTheme={currentTheme}
@@ -28,7 +27,7 @@ const Section = forwardRef<HTMLDivElement, SectionProps>(function Section(
         {children}
       </ChildWrapper>
     </SectionWrapper>
-  );
-});
+  ),
+);
 
 export default Section;

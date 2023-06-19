@@ -12,11 +12,14 @@ import { Button } from '@/components/Form';
 import { StickyWrapper, Wrapper } from './styled';
 
 interface NavigationProps {
-  isSticky: boolean;
+  showStickyHeader: boolean;
   handleProtectButton: () => void;
 }
 
-const Navigation = ({ isSticky, handleProtectButton }: NavigationProps) => {
+const Navigation = ({
+  showStickyHeader,
+  handleProtectButton,
+}: NavigationProps) => {
   const theme = useTheme();
 
   return (
@@ -24,20 +27,17 @@ const Navigation = ({ isSticky, handleProtectButton }: NavigationProps) => {
       currentTheme={theme.color.white()}
       wrapperStyles={{ width: '100%' }}
     >
-      {isSticky ? (
-        <StickyWrapper>
-          <img src={logo} alt="logo" width="80px" height="22px" />
-          <div>
-            <Button onClick={handleProtectButton} type="button">
-              Protect me now
-            </Button>
-          </div>
-        </StickyWrapper>
-      ) : (
-        <Wrapper>
-          <img src={logo} alt="logo" width="80px" height="22px" />
-        </Wrapper>
-      )}
+      <StickyWrapper $isVisible={showStickyHeader}>
+        <img src={logo} alt="logo" width="80px" height="22px" />
+        <div>
+          <Button onClick={handleProtectButton} type="button">
+            Protect me now
+          </Button>
+        </div>
+      </StickyWrapper>
+      <Wrapper $isVisible={!showStickyHeader}>
+        <img src={logo} alt="logo" width="80px" height="22px" />
+      </Wrapper>
     </Section>
   );
 };

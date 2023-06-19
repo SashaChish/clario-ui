@@ -17,7 +17,7 @@ const SpywareDetector = () => {
   const theme = useTheme();
 
   return (
-    <Section currentTheme={theme.color.white()}>
+    <Section id="spywareDetector" currentTheme={theme.color.white()}>
       <Title>Clario helps you easily avoid spying.</Title>
       <CardGroup
         imgScr={spywareDetector}

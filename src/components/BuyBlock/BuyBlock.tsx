@@ -25,7 +25,7 @@ import {
   WhatYouGetWrapper,
 } from './styled';
 
-const BuyBlock = forwardRef<HTMLDivElement>(function BuyBlock(_, ref) {
+const BuyBlock = forwardRef<HTMLDivElement>((_, ref) => {
   const theme = useTheme();
   const { minutes, seconds } = useCountdown(DATE_TIME_AFTER_THIRTY_MINUTES);
 

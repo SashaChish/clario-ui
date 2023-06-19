@@ -13,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   styles?: Interpolation<React.CSSProperties>;
   textStyles?: Interpolation<React.CSSProperties>;
   size?: 'small' | 'large' | 'big';
+  id?: string;
 }
 
 const Button = ({
@@ -20,12 +21,14 @@ const Button = ({
   children,
   styles,
   textStyles,
+  id,
   ...props
 }: ButtonProps) => (
   <StyledButton
     onClick={onClick}
     styles={styles}
     $textStyles={textStyles}
+    id={id}
     {...props}
   >
     <span>{children}</span>

@@ -35,7 +35,11 @@ const Introduction = ({ handleProtectButton }: IntroductionProps) => {
       <SubTitle>
         Try Clario, a smart anti-spy app that effectively protects your privacy.
       </SubTitle>
-      <Button size="large" onClick={handleProtectButton}>
+      <Button
+        id="introductionProtectButton"
+        size="large"
+        onClick={handleProtectButton}
+      >
         Protect me now
       </Button>
       <Devices />

@@ -14,7 +14,7 @@ const TrackerDetector = () => {
   const theme = useTheme();
 
   return (
-    <Section currentTheme={theme.color.white()}>
+    <Section id="trackerDetector" currentTheme={theme.color.white()}>
       <CardGroup
         imgScr={trackerDetector}
         unorderedList={unorderedList}

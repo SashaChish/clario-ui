@@ -22,11 +22,13 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
+    "react/display-name": "off",
     "import/no-extraneous-dependencies": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "react/require-default-props": "off",
-    "react/jsx-props-no-spreading": "off"
+    "import/prefer-default-export": "off"
   }
 }
